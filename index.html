@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlavorGraph - Intelligent Recipe Navigator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">🍲 FlavorGraph</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Recipes</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Cook Smart with <span>A2B Cafe's</span></h1>
+    <p>Discover recipes you can make with ingredients you already have.</p>
+  </section>
+
+  <!-- Input Section -->
+  <section class="input-section container">
+    <h2>Enter Your Ingredients</h2>
+    <form method="POST" action="/">
+      <input type="text" name="ingredients" placeholder="e.g. rice, egg, tomato, butter" required>
+
+      <div class="options">
+        <label>
+          <input type="checkbox" name="strategy" value="greedy"> Greedy Match
+        </label>
+        <label>
+          <input type="checkbox" name="strategy" value="backtracking"> Backtracking
+        </label>
+        <label>
+          <input type="checkbox" name="strategy" value="graph"> Graph Insights
+        </label>
+      </div>
+
+      <button type="submit">🔍 Find Recipes</button>
+    </form>
+    <p class="help">Tip: Separate ingredients with commas.</p>
+  </section>
+
+  <!-- Results Section -->
+  {% if suggestions %}
+  <section class="results container">
+    <h2>🍴 Recipe Suggestions</h2>
+    <div class="cards">
+      {% for item in suggestions %}
+      <div class="card">
+        <h3>{{ item.recipe }}</h3>
+        <p class="status">{{ item.status }}</p>
+
+        <div class="details">
+          <strong>Matched:</strong> {{ item.matched_count }}<br>
+          <strong>Missing:</strong> {{ item.missing_count }}
+        </div>
+
+        {% if item.missing %}
+        <div class="missing">
+          <h4>Missing Ingredients:</h4>
+          <ul>
+            {% for ing in item.missing %}
+            <li>{{ ing }} 
+              {% if item.substitutions[ing] %}
+              <span class="sub"> (Try: {{ item.substitutions[ing]|join(", ") }})</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Made with ❤️ for Project Submission | FlavorGraph © 2025</p>
+  </footer>
+</body>
+</html>

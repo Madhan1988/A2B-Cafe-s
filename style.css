@@ -1,0 +1,111 @@
+body { font-family: Arial, sans-serif; background:#f7f7f8; color:#222; }
+.container { max-width:900px; margin:30px auto; background:white; padding:20px; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
+h1 { margin-top:0; }
+form input[type="text"] { width:100%; padding:10px; margin:8px 0 12px 0; box-sizing:border-box; }
+.controls { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+.controls label { font-size:0.9em; }
+button { background:#2b7cff; color:white; padding:10px 16px; border:none; border-radius:6px; cursor:pointer; }
+table { width:100%; border-collapse:collapse; margin-top:12px; }
+table th, table td { border:1px solid #e3e3e3; padding:8px; text-align:left; }
+.help { margin-top:12px; font-size:0.9em; color:#555; }
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: linear-gradient(90deg, #ff7043, #ff9800);
+  color: white;
+}
+
+.header .logo {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.header nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: #ff5722;
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Cards for Results */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ff7043;
+}
+
+.status {
+  font-weight: bold;
+  color: #388e3c;
+}
+
+.missing ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.missing li {
+  margin: 4px 0;
+}
+
+.sub {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: #ff7043;
+  color: white;
+  margin-top: 40px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlavorGraph - Recipe Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">🍲 FlavorGraph</div>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="#">Recipes</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <!-- Results Section -->
+  <section class="results container">
+    <h2>🍴 Recipe Suggestions</h2>
+    <div class="cards">
+      {% for item in suggestions %}
+      <div class="card">
+        <h3>{{ item.recipe }}</h3>
+        <p class="status">{{ item.status }}</p>
+
+        <div class="details">
+          <strong>Matched:</strong> {{ item.matched_count }}<br>
+          <strong>Missing:</strong> {{ item.missing_count }}
+        </div>
+
+        {% if item.missing %}
+        <div class="missing">
+          <h4>Missing Ingredients:</h4>
+          <ul>
+            {% for ing in item.missing %}
+            <li>{{ ing }} 
+              {% if item.substitutions[ing] %}
+              <span class="sub">(Try: {{ item.substitutions[ing]|join(", ") }})</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Made with ❤️ for Project Submission | FlavorGraph © 2025</p>
+  </footer>
+</body>
+</html>
