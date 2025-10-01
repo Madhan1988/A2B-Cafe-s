@@ -2,7 +2,7 @@
 Intelligent Recipe Navigator with Algorithmic Insights – Flask project using Graph Theory, Backtracking, and Greedy Algorithms.
 
 
-# 🍲 FlavorGraph: Intelligent Recipe Navigator
+# 🍲 A2B Cafe's: Intelligent Recipe Navigator
 
 **FlavorGraph** is an intelligent recipe suggestion system that helps users discover recipes based on available ingredients.  
 It leverages **Graph Theory, Backtracking, and Greedy Algorithms** to efficiently recommend dishes, highlight missing items, and suggest substitutions.  
